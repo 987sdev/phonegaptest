@@ -21,13 +21,25 @@ var app = {
         });
     },
     
+    renderHomeView: function() {
+        self.showAlert('in renderhomeview', 'Info');
+    var html =
+            "<div class='header'><h1>Home James JS</h1></div>" +
+            "<div class='search-view'>James Test2" +
+            "<input class='search-key'/>" +
+            "<ul class='employee-list'></ul>" +
+            "</div>"
+    $('body').html(html);
+    $('.search-key').on('keyup', $.proxy(this.findByName, this));
+    },
+    
     initialize: function() {
-        var self = this;
-        this.store = new MemoryStore(function() {
-            self.showAlert('Store Initialized James', 'Info');
-        });
-        $('.search-key').on('keyup', $.proxy(this.findByName, this));
-    }
+    var self = this;
+    this.store = new MemoryStore(function() {
+        self.showAlert('Store Initialized James', 'Info');
+        self.renderHomeView();
+    });
+}
 
 };
 
