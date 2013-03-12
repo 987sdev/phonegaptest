@@ -22,6 +22,7 @@ var app = {
     },
     
     renderHomeView: function() {
+        var self = this;
         self.showAlert('in renderhomeview', 'Info');
     var html =
             "<div class='header'><h1>Home James JS</h1></div>" +
